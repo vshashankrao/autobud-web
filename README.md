@@ -9,7 +9,8 @@ Static site for AutoBud:
 - `/.well-known/apple-app-site-association` — Universal Links (iOS)
 - `/.well-known/assetlinks.json` — App Links (Android)
 
-Deployed to Cloudflare Pages at https://autobud.pages.dev.
+Deployed to Cloudflare Workers (static-assets) at
+https://autobud.vshashankrao.workers.dev.
 
 ## Updating App Links fingerprints
 
