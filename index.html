@@ -5,10 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AutoBud</title>
 <style>
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 640px; margin: 80px auto; padding: 24px; color: #1a1a1a; line-height: 1.5; }
+  :root { color-scheme: light dark; --fg: #1a1a1a; --muted: #555; --link: #0a66c2; --bg: #fff; }
+  @media (prefers-color-scheme: dark) {
+    :root { --fg: #f1f1f3; --muted: #b4b4b8; --link: #6aaaff; --bg: #1a1a1a; }
+  }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 640px; margin: 80px auto; padding: 24px; color: var(--fg); background: var(--bg); line-height: 1.5; }
   h1 { font-size: 36px; margin: 0 0 8px; }
-  p { color: #555; }
-  a { color: #0a66c2; }
+  p { color: var(--muted); }
+  a { color: var(--link); }
   .links { margin-top: 32px; }
   .links a { display: inline-block; margin-right: 16px; }
 </style>

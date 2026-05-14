@@ -5,14 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Email Confirmed — AutoBud</title>
 <style>
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 480px; margin: 80px auto; padding: 24px; color: #1a1a1a; line-height: 1.5; text-align: center; }
+  :root { color-scheme: light dark; --fg: #1a1a1a; --muted: #555; --bg: #fff; --btn-bg: #0a66c2; }
+  @media (prefers-color-scheme: dark) {
+    :root { --fg: #f1f1f3; --muted: #b4b4b8; --bg: #1a1a1a; --btn-bg: #2d7fd6; }
+  }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 480px; margin: 80px auto; padding: 24px; color: var(--fg); background: var(--bg); line-height: 1.5; text-align: center; }
   h1 { font-size: 28px; margin: 24px 0 12px; }
-  p { color: #555; }
+  p { color: var(--muted); }
   .check { font-size: 64px; color: #2eb872; }
   .err  { font-size: 64px; color: #d93025; }
   a.btn {
     display: inline-block; margin-top: 24px; padding: 12px 24px;
-    background: #0a66c2; color: white; text-decoration: none; border-radius: 8px;
+    background: var(--btn-bg); color: white; text-decoration: none; border-radius: 8px;
     font-weight: 600;
   }
   .hidden { display: none; }

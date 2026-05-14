@@ -5,11 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy Policy — AutoBud</title>
 <style>
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 720px; margin: 60px auto; padding: 24px; color: #1a1a1a; line-height: 1.6; }
+  :root { color-scheme: light dark; --fg: #1a1a1a; --muted: #888; --link: #0a66c2; --bg: #fff; }
+  @media (prefers-color-scheme: dark) {
+    :root { --fg: #f1f1f3; --muted: #9c9ca0; --link: #6aaaff; --bg: #1a1a1a; }
+  }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 720px; margin: 60px auto; padding: 24px; color: var(--fg); background: var(--bg); line-height: 1.6; }
   h1 { font-size: 32px; margin-bottom: 4px; }
   h2 { font-size: 20px; margin-top: 32px; }
-  .updated { color: #888; font-size: 14px; margin-bottom: 32px; }
-  a { color: #0a66c2; }
+  .updated { color: var(--muted); font-size: 14px; margin-bottom: 32px; }
+  a { color: var(--link); }
   ul { padding-left: 22px; }
 </style>
 </head>
