@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Email Confirmed — AutoBud</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 480px; margin: 80px auto; padding: 24px; color: #1a1a1a; line-height: 1.5; text-align: center; }
+  h1 { font-size: 28px; margin: 24px 0 12px; }
+  p { color: #555; }
+  .check { font-size: 64px; color: #2eb872; }
+  .err  { font-size: 64px; color: #d93025; }
+  a.btn {
+    display: inline-block; margin-top: 24px; padding: 12px 24px;
+    background: #0a66c2; color: white; text-decoration: none; border-radius: 8px;
+    font-weight: 600;
+  }
+  .hidden { display: none; }
+</style>
+</head>
+<body>
+  <div id="ok">
+    <div class="check">✓</div>
+    <h1>Email confirmed</h1>
+    <p>Your AutoBud account is verified. Open the AutoBud app and sign in to continue.</p>
+    <a class="btn" id="openApp" href="#">Open AutoBud</a>
+  </div>
+
+  <div id="bad" class="hidden">
+    <div class="err">!</div>
+    <h1>Confirmation failed</h1>
+    <p id="errMsg">This link may have expired. Open the AutoBud app and request a new confirmation email.</p>
+  </div>
+
+  <script>
+    // Supabase redirects here after verifying the email token. Two flow shapes:
+    //   Implicit:  fragment contains  #access_token=...&refresh_token=...&type=signup
+    //   PKCE:      query     contains  ?code=...                    (handled in-app)
+    //   Error:     either contains    ?error=... or #error=...
+    //
+    // For the implicit flow we pass the fragment through to the app via a
+    // custom-scheme deep link. Universal Links on the email-link host take
+    // precedence on devices where the app is installed (AASA captures the
+    // visit before the browser opens this page).
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const frag   = new URLSearchParams(window.location.hash.slice(1));
+      const err    = params.get('error') || frag.get('error') ||
+                     params.get('error_description') || frag.get('error_description');
+
+      if (err) {
+        document.getElementById('ok').classList.add('hidden');
+        document.getElementById('bad').classList.remove('hidden');
+        document.getElementById('errMsg').textContent = err;
+        return;
+      }
+
+      // Wire the "Open AutoBud" button to a custom-scheme deep link carrying
+      // the original fragment so the app can call setSession.
+      const fragStr = window.location.hash || '';
+      const code    = params.get('code');
+      const deepLink = code
+        ? 'boomin.autobud.v1://auth-callback?code=' + encodeURIComponent(code)
+        : 'boomin.autobud.v1://auth-callback' + fragStr;
+      document.getElementById('openApp').setAttribute('href', deepLink);
+    })();
+  </script>
+</body>
+</html>

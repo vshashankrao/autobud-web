@@ -1,0 +1,22 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "boomin.autobud.v1",
+      "sha256_cert_fingerprints": [
+        "6D:D5:AA:3F:17:CD:E1:A1:D6:C3:38:E9:9C:1E:40:D0:F5:29:DD:F8:56:F4:5F:37:C6:10:35:DA:71:53:7C:45"
+      ]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "boomin.autobud.tech",
+      "sha256_cert_fingerprints": [
+        "6D:D5:AA:3F:17:CD:E1:A1:D6:C3:38:E9:9C:1E:40:D0:F5:29:DD:F8:56:F4:5F:37:C6:10:35:DA:71:53:7C:45"
+      ]
+    }
+  }
+]

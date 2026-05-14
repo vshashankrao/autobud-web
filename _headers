@@ -1,0 +1,7 @@
+# Apple requires application/json for AASA. The file has no extension so
+# Cloudflare Pages would otherwise serve it as application/octet-stream.
+/.well-known/apple-app-site-association
+  Content-Type: application/json
+
+/.well-known/assetlinks.json
+  Content-Type: application/json

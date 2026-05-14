@@ -1,0 +1,18 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "9D997PR967.com.shashankrao.AutoBudV1",
+          "9D997PR967.com.shashankrao.AutoBudTech"
+        ],
+        "components": [
+          {
+            "/": "/auth/confirm*",
+            "comment": "Supabase email confirmation deep link"
+          }
+        ]
+      }
+    ]
+  }
+}
